@@ -1,35 +1,25 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { HeaderButtons, Item } from "react-navigation-header-buttons";
-
-import CustomHeaderButton from "../components/HeaderButton";
+import { View, Text, StyleSheet, Button } from "react-native";
 
 const PlacesListScreen = () => {
   return (
-    <View style={styles.screen}>
+    <View>
       <Text>PlacesListScreen</Text>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: "center",
-  },
-});
+PlacesListScreen.navigationOptions = {
+  headerTitle: "All Places",
+};
+
+const styles = StyleSheet.create({});
 
 PlacesListScreen.navigationOptions = ({ navigation }) => {
   return {
-    headerTitle: "All Places",
-    headerRight: (
-      <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
-        <Item
-          title="Add Place"
-          iconName="md-add"
-          onPress={() => navigation.navigate("NewPlace")}
-        />
-      </HeaderButtons>
+    headerTitle: () => <Text>All Places</Text>,
+    headerRight: () => (
+      <Button onPress={() => navigation.navigate("NewPlace")} title="New" />
     ),
   };
 };
