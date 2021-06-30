@@ -5,6 +5,7 @@ const NewPlaceScreen = () => {
     return <View><Text>NewPlaceScreen</Text></View> 
 }
 
-const styles = StyleSheet.create({}) 
+const styles = StyleSheet.create({})
+
 
 export default NewPlaceScreen
