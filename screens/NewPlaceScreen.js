@@ -24,7 +24,6 @@ const NewPlaceScreen = ({ addPlace, navigation }) => {
 
   const titleSaveHandler = () => {
     addPlace(titleValue);
-    console.log('going back')
     navigation.goBack();
   };
 
