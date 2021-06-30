@@ -1,5 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
+import { Icon } from "react-native-elements";
+
 
 const PlacesListScreen = () => {
   return (
@@ -19,7 +21,11 @@ PlacesListScreen.navigationOptions = ({ navigation }) => {
   return {
     headerTitle: () => <Text>All Places</Text>,
     headerRight: () => (
-      <Button onPress={() => navigation.navigate("NewPlace")} title="New" />
+      <Icon
+        name="add-circle-outline"
+        onPress={() => navigation.navigate("NewPlace")}
+        size={30}
+      />
     ),
   };
 };
