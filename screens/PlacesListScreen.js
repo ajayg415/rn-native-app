@@ -12,14 +12,14 @@ const PlacesListScreen = () => {
 };
 
 PlacesListScreen.navigationOptions = {
-  headerTitle: "All Places",
+  headerTitle: "Add Places",
 };
 
 const styles = StyleSheet.create({});
 
 PlacesListScreen.navigationOptions = ({ navigation }) => {
   return {
-    headerTitle: () => <Text>All Places</Text>,
+    headerTitle: () => <Text>Add Places</Text>,
     headerRight: () => (
       <Icon
         name="add-circle-outline"
