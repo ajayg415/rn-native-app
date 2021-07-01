@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import { Icon } from "react-native-elements";
 import { connect } from "react-redux";
 
 import PlaceItem from "../components/PlaceItem";
+import { loadPlaces } from "../store/places-actions";
 
 const mapStateToProps = (state) => ({
   places: state.places.places,
 });
 
-const PlacesListScreen = ({ places, navigation }) => {
+const mapDispatchToProps = {
+  loadPlaces,
+};
+
+const PlacesListScreen = ({ places, navigation, loadPlaces }) => {
+  useEffect(() => {
+    loadPlaces()
+  }, []);
+  
+  console.log('places :', places)
+
   return (
     <FlatList
       data={places}
@@ -51,4 +62,4 @@ PlacesListScreen.navigationOptions = ({ navigation }) => {
   };
 };
 
-export default connect(mapStateToProps)(PlacesListScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(PlacesListScreen);

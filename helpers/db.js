@@ -28,3 +28,16 @@ export const insertPlace = (title, imageUri, address, lat, lng) => {
     });
   });
 };
+
+export const fetchPlaces = () => {
+  return new Promise((resolve, reject) => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        `SELECT * from places`,
+        [],
+        (_, res) => resolve(res),
+        (_, err) => reject(err)
+      );
+    });
+  });
+};
