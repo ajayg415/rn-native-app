@@ -18,15 +18,20 @@ const mapDispatchToProps = {
 
 const NewPlaceScreen = ({ addPlace, navigation }) => {
   const [titleValue, setTitleValue] = useState("");
+  const [selectedImage, setSelectedImage] = useState()
 
   const handleTitleChange = (title) => {
     setTitleValue(title);
   };
 
   const titleSaveHandler = () => {
-    addPlace(titleValue);
+    addPlace(titleValue, selectedImage);
     navigation.goBack();
   };
+
+  const imageTakenHandler = imgUri => {
+    setSelectedImage(imgUri)
+  }
 
   return (
     <ScrollView>
@@ -37,7 +42,7 @@ const NewPlaceScreen = ({ addPlace, navigation }) => {
           value={titleValue}
           onChangeText={handleTitleChange}
         />
-        <ImgPicker />
+        <ImgPicker onImageTaken={imageTakenHandler}/>
         <Button title="Save Place" onPress={titleSaveHandler} />
       </View>
     </ScrollView>

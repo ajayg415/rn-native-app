@@ -5,7 +5,7 @@ import * as Permission from "expo-permissions";
 
 import Colors from "../constants/Colors";
 
-const ImgPicker = ({}) => {
+const ImgPicker = ({onImageTaken}) => {
   const [pickedImg, setPickedImg] = useState();
 
   const verifyPermissions = async () => {
@@ -27,6 +27,7 @@ const ImgPicker = ({}) => {
         quality: 0.5,
       });
       setPickedImg(image.uri);
+      onImageTaken(image.uri)
     }
   };
 
@@ -51,6 +52,7 @@ const ImgPicker = ({}) => {
 const styles = StyleSheet.create({
   imagePicker: {
     alignItems: "center",
+    marginBottom: 15,
   },
   imagePreview: {
     width: "100%",

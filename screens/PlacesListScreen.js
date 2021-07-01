@@ -16,7 +16,7 @@ const PlacesListScreen = ({ places, navigation }) => {
       renderItem={(itemData) => {
         return (
           <PlaceItem
-            image={null}
+            image={itemData.item.imageUri}
             title={itemData.item.title}
             address={null}
             onSelect={() => {
