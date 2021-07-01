@@ -10,6 +10,7 @@ import {
 import { connect } from "react-redux";
 
 import { addPlace } from "../store/places-actions";
+import ImgPicker from '../components/ImageSelector'
 
 const mapDispatchToProps = {
   addPlace,
@@ -36,6 +37,7 @@ const NewPlaceScreen = ({ addPlace, navigation }) => {
           value={titleValue}
           onChangeText={handleTitleChange}
         />
+        <ImgPicker />
         <Button title="Save Place" onPress={titleSaveHandler} />
       </View>
     </ScrollView>
