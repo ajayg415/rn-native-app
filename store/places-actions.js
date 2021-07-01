@@ -14,7 +14,7 @@ export const addPlace = (title, image) => {
         from: image,
         to: newPath,
       });
-      const dbRes = await insertPlace(title, image, "Dummy address", 15, 15);
+      const dbRes = await insertPlace(title, newPath, "Dummy address", 15, 15);
       console.log(dbRes);
       dispatch({
         type: ADD_PLACE,
